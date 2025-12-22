@@ -1,0 +1,78 @@
+type Query {
+  user: User!
+}
+
+type User {
+  id: ID!
+  username: String!
+  region: Region!
+  date_joined: Int!
+  books_owned: [Books!]
+  books_borrowed_current: [Books!]
+  books_lent_out: [Books!]
+  reading_lists:[Reading_List!]
+  book_titles_owned: [Book_Title!]
+  # profile_image: String # <-- Yet to be implemented 
+}
+
+type Book {
+  id: ID!
+  author: String!
+  author_id: Author!
+  date_of_publication: Date!
+  title: String!
+  title_id: Book_Title!
+  owner: User!
+  date_added: Int!
+  times_borrowed: Int!
+  is_lendable: Boolean!
+  is_being_lent: Boolean!
+  scheduled_return_time: Date!
+  quality: String
+  genres: [Genre!]
+  # cover_image: String # <-- Yet to be implemented
+}
+
+type Book_Title {
+  id: ID!
+  author: String!
+  author_id: Author!
+  date_of_publication: Date!
+  being_lent_by: [User!]
+  genres: [Genre!]
+  # cover_image: String # <-- Yet to be implemented
+}
+
+type Author {
+  id: ID!
+  name: String!
+  birth_year: Int!
+  books_written: [Book_Title!]
+  # picture: String # <-- Yet to be implemented
+}
+
+type Reading_List {
+  id: ID!
+  name: String!
+  owner: User!
+  books: [Book_Title!]!
+  description: String
+}
+
+type Region {
+  id: ID!
+  population: Int!
+  num_books: Int!
+  users_in_region: [User!]
+  books_in_region: [Book!]
+}
+
+type Lending_Record {
+  id: ID!
+  lender: User!
+  borrower: User!
+  book: Book!
+  borrowed_start: Date!
+  borrowed_end: Date!
+  actively_borrowed: Boolean!
+}
