@@ -1,3 +1,5 @@
+scalar Date
+
 type Query {
   user: User!
 }
@@ -7,9 +9,9 @@ type User {
   username: String!
   region: Region!
   date_joined: Int!
-  books_owned: [Books!]
-  books_borrowed_current: [Books!]
-  books_lent_out: [Books!]
+  books_owned: [Book!]
+  books_borrowed_current: [Book!]
+  books_lent_out: [Book!]
   reading_lists:[Reading_List!]
   book_titles_owned: [Book_Title!]
   # profile_image: String # <-- Yet to be implemented 
@@ -75,4 +77,11 @@ type Lending_Record {
   borrowed_start: Date!
   borrowed_end: Date!
   actively_borrowed: Boolean!
+}
+
+type Genre {
+  id: ID!
+  name: String!
+  book_titles: [Book_Title!]
+  num_books: Int!
 }

@@ -1,0 +1,5 @@
+uvicorn
+ariadne
+flask
+flask-sqlalchemy
+flask-cors
