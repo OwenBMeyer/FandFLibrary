@@ -6,7 +6,13 @@ from flask import request, jsonify
 from datetime import datetime
 from ariadne.explorer import ExplorerGraphiQL
 
+from api.database import db
+
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///FaFLib.db"
+
+db.init_app(app)
+
 CORS(app)
 
 type_defs = load_schema_from_path("gqlschema/schema.graphql")
