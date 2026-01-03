@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.4.18 on Sat Dec 20 13:39:30 2025
+-- File generated with SQLiteStudio v3.4.18 on Sat Jan 3 14:29:10 2026
 --
 -- Text encoding used: System
 --
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Author (
 );
 
 -- Table: Book
-CREATE TABLE IF NOT EXISTS Book(
+CREATE TABLE IF NOT EXISTS "Book"(
     book_id INT PRIMARY KEY,
     owner_id INT NOT NULL,
     title_id INT NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS Lending_Record(
             ON DELETE CASCADE
             ON UPDATE NO ACTION
     FOREIGN KEY (book_id)
-        REFERENCES Book(book_id)
+        REFERENCES "Book"(book_id)
             ON DELETE CASCADE
             ON UPDATE NO ACTION
 );
@@ -132,7 +132,14 @@ CREATE TABLE IF NOT EXISTS Reading_List(
 );
 
 -- Table: Region
-CREATE TABLE IF NOT EXISTS Region (region_id INT PRIMARY KEY, region_name VARCHAR (255) NOT NULL, region_coord_lat REAL, region_coord_lon REAL, zipcode INT NOT NULL, population INTEGER DEFAULT (0));
+CREATE TABLE IF NOT EXISTS Region (
+    region_id INT PRIMARY KEY,
+    region_name VARCHAR (255) NOT NULL,
+    region_coord_lat REAL,
+    region_coord_lon REAL,
+    zipcode INT NOT NULL,
+    population INTEGER DEFAULT (0)
+);
 
 -- Table: User
 CREATE TABLE IF NOT EXISTS User (
