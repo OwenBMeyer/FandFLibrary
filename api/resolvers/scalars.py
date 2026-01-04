@@ -1,7 +1,7 @@
 from ariadne import ScalarType
 from datetime import datetime
 
-date_scala = ScalarType("Date")
+date_scalar = ScalarType("Date")
 
 @date_scalar.serializer
 def serialize_date(value):
