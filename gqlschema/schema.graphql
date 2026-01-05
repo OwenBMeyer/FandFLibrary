@@ -2,13 +2,16 @@ scalar Date
 
 type Query {
   user(id: ID!): User!
+  book(id: ID!): Book!
 }
 
+# Progress: Started
 type User {
   id: ID!
   username: String!
   region: Region!
   date_joined: Int!
+  # books: [Book!]
   books_owned: [Book!]
   books_borrowed_current: [Book!]
   books_lent_out: [Book!]
@@ -17,6 +20,7 @@ type User {
   # profile_image: String # <-- Yet to be implemented 
 }
 
+# Progress: Started
 type Book {
   id: ID!
   author: String!
@@ -79,6 +83,7 @@ type Lending_Record {
   actively_borrowed: Boolean!
 }
 
+# Progress: Complete
 type Genre {
   id: ID!
   name: String!

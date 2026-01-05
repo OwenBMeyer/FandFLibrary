@@ -6,7 +6,7 @@ from datetime import datetime
 from ariadne.explorer import ExplorerGraphiQL
 
 from api.database import db
-from api.resolvers import query, user_type, date_scalar
+from api.resolvers import query, user_type, book_type, date_scalar, genre_type
 from api import models
 
 app = Flask(__name__)
@@ -18,7 +18,7 @@ CORS(app)
 
 type_defs = load_schema_from_path("gqlschema/schema.graphql")
 
-schema = make_executable_schema(type_defs, query, user_type, date_scalar)
+schema = make_executable_schema(type_defs, query, user_type, book_type, genre_type, date_scalar)
 
 
 @app.route('/')
