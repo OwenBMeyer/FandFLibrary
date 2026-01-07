@@ -5,7 +5,12 @@ type Query {
   book(id: ID!): Book!
 }
 
-# Progress: Started
+# Need to write and implement mutations. Must think of what things need to be changeable
+type Mutation {
+
+}
+
+# Progress: Complete
 type User {
   id: ID!
   username: String!
@@ -20,7 +25,7 @@ type User {
   # profile_image: String # <-- Yet to be implemented 
 }
 
-# Progress: Started
+# Progress: Complete
 type Book {
   id: ID!
   author: String!
@@ -33,26 +38,28 @@ type Book {
   times_borrowed: Int!
   is_lendable: Boolean!
   is_being_lent: Boolean!
-  scheduled_return_time: Date!
+  scheduled_return_time: Date
   quality: String
   genres: [Genre!]
   # cover_image: String # <-- Yet to be implemented
 }
 
+# Progress: Complete
 type Book_Title {
   id: ID!
+  book_title_name: String!
   author: String!
-  author_id: Author!
-  date_of_publication: Date!
-  being_lent_by: [User!]
+  author_id: [Author!]
+  date_of_publication: Date
   genres: [Genre!]
   # cover_image: String # <-- Yet to be implemented
 }
 
+# Progress: Complete
 type Author {
   id: ID!
   name: String!
-  birth_year: Int!
+  birthyear: Int!
   books_written: [Book_Title!]
   # picture: String # <-- Yet to be implemented
 }
@@ -65,6 +72,7 @@ type Reading_List {
   description: String
 }
 
+# Progress: Complete
 type Region {
   id: ID!
   population: Int!
@@ -73,6 +81,7 @@ type Region {
   books_in_region: [Book!]
 }
 
+# Progress: Complete
 type Lending_Record {
   id: ID!
   lender: User!

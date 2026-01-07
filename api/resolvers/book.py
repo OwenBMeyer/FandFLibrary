@@ -7,7 +7,7 @@ def register_book_resolvers(query, book_type):
     def resolve_book(_, info, id):
         book = Book.query.get(int(id))
         if not book:
-            raise Exception(f"Book withn id {id} not found")
+            raise Exception(f"Book with id {id} not found")
         return book
 
     @book_type.field("id")
