@@ -3,12 +3,38 @@ scalar Date
 type Query {
   user(id: ID!): User!
   book(id: ID!): Book!
+  books(
+    limit: Int
+    offset: Int
+    isLendable: Boolean
+    ownerId: ID
+  ): [Book!]!
+  bookTitles(
+    limit: Int
+    offset: Int
+    genreId: ID
+    authorId: ID
+  ): [Book_Title!]!
+  authors(
+    limit: Int
+    offset: Int
+  ): [Author!]!
+  genres: [Genre!]!
+  searchBooks(
+    query: String!
+    limit: Int
+    offset: Int
+  ): [Book!]!
+  searchBookTitles(
+    query: String!
+    limit: Int
+  ): [Book_Title!]!
 }
 
 # Need to write and implement mutations. Must think of what things need to be changeable
-type Mutation {
+#type Mutation {
 
-}
+#}
 
 # Progress: Complete
 type User {

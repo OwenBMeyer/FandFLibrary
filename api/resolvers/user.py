@@ -1,5 +1,6 @@
 from ariadne import QueryType, ObjectType
 from api.models import User, LendingRecord
+from api.database import db
 
 def register_user_resolvers(query, user_type):
 
@@ -9,7 +10,7 @@ def register_user_resolvers(query, user_type):
         # user_id = info.context.get('user_id')
         # user = User.query.get(user_id)
 
-        user = User.query.get(int(id))
+        user = db.session.get(User, int(id))
         if not user:
             raise Exception(f"User with id {id} not found")
 

@@ -1,11 +1,12 @@
 from ariadne import ObjectType
 from api.models import Book
+from api.database import db
 
 def register_book_resolvers(query, book_type):
 
     @query.field("book")
     def resolve_book(_, info, id):
-        book = Book.query.get(int(id))
+        book = db.session.get(Book, int(id))
         if not book:
             raise Exception(f"Book with id {id} not found")
         return book

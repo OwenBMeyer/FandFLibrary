@@ -20,6 +20,9 @@ type_defs = load_schema_from_path("gqlschema/schema.graphql")
 
 schema = make_executable_schema(type_defs, query, user_type, book_type, genre_type, lending_record_type, region_type, book_title_type, author_type, date_scalar)
 
+# Export schema for testing
+__all__ = ['app', 'db', 'schema']
+
 
 @app.route('/')
 def hello():
