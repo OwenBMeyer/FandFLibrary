@@ -209,3 +209,8 @@ __marimo__/
 # Database Ignore
 FaFLib.db
 testData.sql
+
+# Personal
+run_tests.sh
+api/resolvers/nextSteps.txt
+tests/PERSONALREADME.md
